@@ -20,9 +20,10 @@ for f in os.listdir(tests):
     abs_f = join(tests, f)
     if isfile(abs_f):
         if f[len(f) - len('.input'):] == '.input':
+            print('TESTING: {}'.format(f))
             fn = f[:len(f) - len('.input')]
             print fn,
-            os.system('./master.py < ' + abs_f + \
+            os.system('./proxy.py < ' + abs_f + \
                     ' 2> ' + join(test_output, fn+'.err') +\
                     ' > ' + join(test_output, fn+'.output'))
 
